@@ -16,13 +16,12 @@ To initialize the contract, two addresses should be passed to the constructor:
 _owner: The address of the contract owner.
 _appWallet: The address of the wallet to which the transaction fees will be transferred.
 solidity
-Copy code
 constructor(address payable _owner, address payable _appWallet)
 Subscription Fees
 The subscription fees can be set by calling the setOneTimeFee(), setMonthlyFee(), and setYearlyFee() functions. These functions can only be called by the contract owner.
 
 solidity
-Copy code
+
 function setOneTimeFee(uint256 _price) public;
 function setMonthlyFee(uint256 _price) public;
 function setYearlyFee(uint256 _price) public;
@@ -31,25 +30,22 @@ One-Time Subscription
 Companies can subscribe to a one-time vetting service by calling the subscribeOneTimeSubscription() function. The function requires the payment amount to be equal to the one-time subscription fee.
 
 solidity
-Copy code
+
 function subscribeOneTimeSubscription() public payable;
 Monthly Subscription
 Companies can subscribe to a monthly vetting service by calling the subscribeMonthly() function. The function requires the payment amount to be equal to the monthly subscription fee.
 
 solidity
-Copy code
 function subscribeMonthly() public payable;
 Yearly Subscription
 Companies can subscribe to a yearly vetting service by calling the subscribeYearly() function. The function requires the payment amount to be equal to the yearly subscription fee.
 
 solidity
-Copy code
 function subscribeYearly() public payable;
 Remaining Vetting Count
 Companies can check the remaining number of vetting services they have subscribed to by calling the getRemainingVettingCount() function.
 
 solidity
-Copy code
 function getRemainingVettingCount() public view returns (uint256);
 Events
 The contract emits the following events:
